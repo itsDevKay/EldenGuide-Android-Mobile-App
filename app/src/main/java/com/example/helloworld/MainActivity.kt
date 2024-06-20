@@ -1,6 +1,8 @@
 package com.example.helloworld
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowInsetsControllerCompat
@@ -52,6 +55,10 @@ class MainActivity : ComponentActivity() {
                     color = Color(0xff15140e)
                 )
             }
+
+            val activity = (LocalContext.current as Activity)
+            activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT
+
             HelloWorldTheme {
                 Scaffold(
                     modifier = Modifier
@@ -159,3 +166,4 @@ fun EldenRingApp(padding: PaddingValues?) {
 //                    }
     }
 }
+

@@ -106,7 +106,13 @@ fun TabScreen() {
             }
         ) {
             tabs.forEachIndexed { index, title ->
-                Tab(text = { Text(title) },
+                Tab(
+                    text = {
+                        Text(
+                            title,
+                            fontFamily = garamond
+                        )
+                    },
                     selected = tabIndex == index,
                     onClick = { tabIndex = index },
                     icon = {
